@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rumo ao ENEM</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- A ordem importa: casas.js antes de script.js -->
+    <script src="js/casas.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Rumo ao ENEM</h1>
+        <p>Seu caminho até a aprovação!</p>
+    </header>
+
+    <main>
+
+        <!-- Jogadores -->
+        <section id="area-jogadores">
+            <h2>Jogadores</h2>
+
+            <div id="lista-jogadores">
+
+                <div class="jogador" id="jogador-1">
+                    <img class="icone-peao" src="assets/peoes/azul.png" alt="Peão azul">
+                    <h3>Jogador 1</h3>
+                    <p>Casa: <span class="posicao">1</span></p>
+                </div>
+
+                <div class="jogador" id="jogador-2">
+                    <img class="icone-peao" src="assets/peoes/vermelho.png" alt="Peão vermelho">
+                    <h3>Jogador 2</h3>
+                    <p>Casa: <span class="posicao">1</span></p>
+                </div>
+
+                <div class="jogador" id="jogador-3">
+                    <img class="icone-peao" src="assets/peoes/verde.png" alt="Peão verde">
+                    <h3>Jogador 3</h3>
+                    <p>Casa: <span class="posicao">1</span></p>
+                </div>
+
+                <div class="jogador" id="jogador-4">
+                    <img class="icone-peao" src="assets/peoes/amarelo.png" alt="Peão amarelo">
+                    <h3>Jogador 4</h3>
+                    <p>Casa: <span class="posicao">1</span></p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Controles -->
+        <section id="controles">
+
+            <div id="area-dado">
+                <h2>Dado</h2>
+
+                <div id="resultado-dado" aria-live="polite">-</div>
+
+                <button id="btn-jogar-dado">Jogar dado</button>
+                <button id="btn-nova-partida" class="secundario" hidden>Nova partida</button>
+            </div>
+
+            <div id="informacao-jogada">
+                <h3 id="jogador-atual">Vez do Jogador 1</h3>
+                <p id="mensagem" aria-live="polite">Prepare-se para começar!</p>
+            </div>
+
+        </section>
+
+
+        <!-- Tabuleiro -->
+        <section id="area-tabuleiro">
+            <h2>Tabuleiro</h2>
+
+            <div id="tabuleiro">
+                <!-- Peões (e, no modo ?debug, os pontos das casas) são criados pelo JavaScript -->
+                <div id="trilha-tabuleiro"></div>
+            </div>
+
+            <p id="debug-info" hidden></p>
+        </section>
+
+
+        <!-- Ranking -->
+        <section id="area-ranking">
+            <h2>Ranking</h2>
+
+            <div id="ranking">
+                <img id="ranking-fundo" src="assets/ranking.png" alt="">
+                <div id="lista-ranking"></div>
+            </div>
+
+            <button id="btn-reiniciar-ranking" class="secundario">Zerar vitórias</button>
+        </section>
+
+    </main>
+
+
+    <!-- Pop-up -->
+    <dialog id="modal-casa">
+        <div id="janela" class="neutro">
+
+            <button id="btn-x" aria-label="Fechar">
+                <img src="assets/botoes/fechar.jpg" alt="">
+            </button>
+
+            <h2 id="titulo-modal"></h2>
+
+            <div id="corpo-modal">
+                <p id="descricao-modal"></p>
+                <p id="consequencia-modal"></p>
+                <a id="link-modal" href="#" target="_blank" rel="noopener" hidden>▶ Saiba mais</a>
+            </div>
+
+            <button id="btn-fechar-modal" aria-label="OK">
+                <img src="assets/botoes/ok.jpg" alt="OK">
+            </button>
+
+        </div>
+    </dialog>
+
+
+    <footer>
+        <p>Rumo ao ENEM - Sonhe, planeje, estude e conquiste!</p>
+    </footer>
+
+</body>
+
+</html>

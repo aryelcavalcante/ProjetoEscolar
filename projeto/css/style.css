@@ -1,0 +1,557 @@
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+:root {
+    --azul: #172b45;
+    --azul-claro: #2879bd;
+    --bege: #fff3d8;
+    --branco: #fffdf7;
+    --texto: #202b38;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bege);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+header {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    color: var(--azul);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+}
+
+header p {
+    margin-top: 8px;
+    color: #647080;
+    font-size: 1rem;
+}
+
+
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+main {
+    width: min(1100px, 94%);
+    margin: auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section > h2 {
+    color: var(--azul);
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   JOGADORES
+======================================== */
+
+#area-jogadores {
+    background-color: var(--branco);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #eadfca;
+}
+
+#lista-jogadores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.jogador {
+    background-color: #f8f4e9;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.jogador.ativo {
+    border-color: var(--azul-claro);
+    background-color: #e9f3fb;
+}
+
+.jogador h3 {
+    margin: 8px 0;
+    color: var(--azul);
+    font-size: 1rem;
+}
+
+.jogador p {
+    font-size: 0.85rem;
+    color: #647080;
+}
+
+.icone-peao {
+    height: 46px;
+    width: auto;
+}
+
+
+/* ========================================
+   CONTROLES DO JOGO
+======================================== */
+
+#controles {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+#area-dado,
+#informacao-jogada {
+    background-color: var(--branco);
+    border: 1px solid #eadfca;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+#area-dado h2 {
+    color: var(--azul);
+    margin-bottom: 15px;
+}
+
+#resultado-dado {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--azul);
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: var(--azul);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px 22px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--azul-claro);
+    transform: translateY(-2px);
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button.secundario {
+    background-color: #647080;
+    margin-top: 10px;
+}
+
+button[hidden] {
+    display: none;
+}
+
+#jogador-atual {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+#mensagem {
+    color: #647080;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   TABULEIRO
+======================================== */
+
+#area-tabuleiro {
+    text-align: center;
+}
+
+/* A proporção é a da imagem do mapa (904 x 1280) */
+
+#tabuleiro {
+    position: relative;
+
+    width: min(100%, 620px);
+    aspect-ratio: 904 / 1280;
+
+    margin: auto;
+
+    background-image: url("../assets/mapa.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+#trilha-tabuleiro {
+    position: absolute;
+    inset: 0;
+}
+
+/* Peões: a base do peão fica sobre o ponto da casa */
+
+.peao {
+    position: absolute;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+
+    width: 4.6%;
+    height: auto;
+
+    transform: translate(calc(-50% + var(--dx, 0%)), calc(-88% + var(--dy, 0%)));
+    transition: left 0.22s ease, top 0.22s ease, transform 0.22s ease;
+
+    filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.4));
+    z-index: 5;
+    pointer-events: none;
+}
+
+.peao.ativo {
+    z-index: 6;
+    animation: pulo 0.8s ease-in-out infinite;
+}
+
+@keyframes pulo {
+    50% { margin-top: -6px; }
+}
+
+/* Modo ?debug */
+
+.ponto-debug {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: #2879bd;
+    color: #fff;
+    font-size: 8px;
+    line-height: 14px;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.ponto-debug.ruim {
+    background: #e34c55;
+}
+
+#debug-info {
+    margin-top: 10px;
+    font-family: monospace;
+    color: var(--azul);
+}
+
+
+/* ========================================
+   RANKING
+======================================== */
+
+#area-ranking {
+    text-align: center;
+}
+
+#ranking {
+    position: relative;
+    width: min(100%, 560px);
+    margin: auto;
+}
+
+#ranking-fundo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#lista-ranking {
+    position: absolute;
+    inset: 0;
+    container-type: inline-size;
+}
+
+/* As 4 barras da imagem: topo e altura em % da imagem */
+
+.item-ranking {
+    position: absolute;
+    left: 24%;
+    width: 68%;
+    height: 11.4%;
+
+    display: flex;
+    align-items: center;
+    gap: 2.2cqw;
+
+    padding: 0 2.5cqw;
+    color: var(--texto);
+    font-weight: bold;
+    font-size: 3.6cqw;
+}
+
+.item-ranking:nth-child(1) { top: 31.8%; }
+.item-ranking:nth-child(2) { top: 47.6%; }
+.item-ranking:nth-child(3) { top: 63.5%; }
+.item-ranking:nth-child(4) { top: 79.4%; }
+
+.item-ranking img {
+    height: 80%;
+    width: auto;
+}
+
+.item-ranking .nome {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-ranking .status {
+    font-weight: normal;
+    font-size: 2.8cqw;
+    color: #4a5666;
+}
+
+.item-ranking .vitorias {
+    font-size: 2.8cqw;
+    color: var(--azul-claro);
+}
+
+
+/* ========================================
+   POP-UP
+======================================== */
+
+#modal-casa {
+    border: none;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    margin: auto;
+}
+
+#modal-casa::backdrop {
+    background: rgba(10, 20, 35, 0.55);
+}
+
+#janela {
+    position: relative;
+    width: min(92vw, 560px);
+    aspect-ratio: 3 / 2;
+
+    container-type: inline-size;
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    font-family: "Courier New", monospace;
+}
+
+#janela.neutro {
+    background-image: url("../assets/popup/neutro.jpg");
+}
+
+#janela.negativo {
+    background-image: url("../assets/popup/negativo.jpg");
+}
+
+/* Botão X na barra azul */
+
+#btn-x {
+    position: absolute;
+    top: 4%;
+    right: 2.8%;
+    width: 6.5%;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    line-height: 0;
+}
+
+#btn-x img {
+    width: 100%;
+    display: block;
+}
+
+/* Título: na barra azul (neutro) ou dentro do corpo (negativo) */
+
+#titulo-modal {
+    position: absolute;
+    top: 3.4%;
+    left: 4%;
+    right: 12%;
+
+    color: #fff;
+    font-size: 4.2cqw;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#janela.negativo #titulo-modal {
+    top: 17%;
+    left: 30%;
+    right: 6%;
+
+    color: #8a0000;
+    font-size: 4.4cqw;
+    white-space: normal;
+}
+
+#corpo-modal {
+    position: absolute;
+    top: 19%;
+    left: 6%;
+    right: 6%;
+    bottom: 24%;
+
+    overflow-y: auto;
+    color: #111;
+    font-size: 3.7cqw;
+    line-height: 1.35;
+}
+
+#janela.negativo #corpo-modal {
+    top: 31%;
+    left: 30%;
+    right: 6%;
+    bottom: 24%;
+}
+
+#consequencia-modal {
+    margin-top: 2cqw;
+    font-weight: bold;
+}
+
+#janela.negativo #consequencia-modal {
+    color: #8a0000;
+}
+
+#consequencia-modal:empty {
+    display: none;
+}
+
+#link-modal {
+    display: inline-block;
+    margin-top: 2cqw;
+    color: #0000b8;
+    font-weight: bold;
+}
+
+#link-modal[hidden] {
+    display: none;
+}
+
+/* Botão OK */
+
+#btn-fechar-modal {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 26%;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    line-height: 0;
+}
+
+#btn-fechar-modal:hover:not(:disabled) {
+    background: none;
+    transform: translateX(-50%) translateY(-2px);
+}
+
+#btn-fechar-modal:active:not(:disabled) {
+    transform: translateX(-50%) scale(0.96);
+}
+
+#btn-fechar-modal img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 30px;
+
+    color: #647080;
+    font-size: 0.9rem;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 700px) {
+
+    #lista-jogadores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #controles {
+        grid-template-columns: 1fr;
+    }
+
+    #corpo-modal {
+        font-size: 4cqw;
+    }
+}
+
+@media (max-width: 380px) {
+
+    #area-jogadores {
+        padding: 12px;
+    }
+
+    .jogador {
+        padding: 10px 5px;
+    }
+}
