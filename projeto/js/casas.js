@@ -42,9 +42,9 @@ const NEUTRAS = [
   { titulo: "Organize seus estudos!", descricao: "Monte um cronograma de estudos, distribuindo as matérias ao longo da semana.", link: "" },
   { titulo: "Conheça o ENEM!", descricao: "Pesquise a estrutura da prova, as áreas de conhecimento e a quantidade de questões.", link: "" },
   { titulo: "Estabeleça uma rotina!", descricao: "Defina horários de estudo e procure manter a frequência.", link: "" },
-  { titulo: "Início da isenção!", descricao: "Chegou a hora de solicitar a isenção da taxa de inscrição, se você tiver direito. Fique atento ao prazo!", link: "" },
-  { titulo: "Faça sua inscrição!", descricao: "Confira o período de inscrição e preencha seus dados com atenção.", link: "" },
-  { titulo: "Pratique redação!", descricao: "Treine sua escrita e conheça as cinco competências avaliadas na redação do ENEM.", link: "" },
+  { titulo: "Início da isenção!", descricao: "Chegou a hora de solicitar a isenção da taxa de inscrição, se você tiver direito. Fique atento ao prazo!", link: "https://youtube.com/shorts/7uPQfhOT5yk?is=IjrLPblesavR71V2 " },
+  { titulo: "Faça sua inscrição!", descricao: "Confira o período de inscrição e preencha seus dados com atenção.", link: "https://youtube.com/shorts/B1WJ1sEsNts?is=5Zq8VU03A40zVoHv" },
+  { titulo: "Pratique redação!", descricao: "Treine sua escrita e conheça as cinco competências avaliadas na redação do ENEM.", link: "https://youtube.com/shorts/PnHMsnoOBio?is=i7h5F0J5nsFg4LqL" },
   { titulo: "Faça simulados!", descricao: "Resolver provas anteriores ajuda a conhecer o estilo das questões.", link: "" },
   { titulo: "Estude matemática!", descricao: "Revise porcentagem, regra de três, funções e interpretação de gráficos.", link: "" },
   { titulo: "Descanse também!", descricao: "Uma boa rotina de estudos precisa de pausas e momentos de descanso.", link: "" },
@@ -80,11 +80,11 @@ const NEUTRAS = [
   { titulo: "Alimente-se bem!", descricao: "No dia da prova, faça um café da manhã leve e leve uma garrafa de água e um lanche.", link: "" },
   { titulo: "Última revisão!", descricao: "Faça uma revisão leve e procure descansar antes da prova.", link: "" },
   { titulo: "Durma bem!", descricao: "Uma boa noite de sono antes do exame vale mais do que estudar até de madrugada.", link: "" },
-  { titulo: "Chegou a hora!", descricao: "Você concluiu sua preparação. Confie no que aprendeu e faça uma boa prova!", link: "" },
-  { titulo: "Chegue cedo!", descricao: "Saia com antecedência, lembre que os portões fecham no horário e evite correria.", link: "" },
-  { titulo: "Reta final!", descricao: "Você está muito perto de alcançar seu objetivo!", link: "" },
-  { titulo: "Respire fundo!", descricao: "Mantenha a calma, leia os enunciados com atenção e comece pelas questões que você domina.", link: "" },
-  { titulo: "Semana da prova!", descricao: "Você chegou à semana antes da primeira prova. Agora é confiar na sua preparação. Boa sorte!", link: "" }
+  { titulo: "Chegou a hora!", descricao: "Você concluiu sua preparação. Confie no que aprendeu e faça uma boa prova!", link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM " },
+  { titulo: "Chegue cedo!", descricao: "Saia com antecedência, lembre que os portões fecham no horário e evite correria.", link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM " },
+  { titulo: "Reta final!", descricao: "Você está muito perto de alcançar seu objetivo! Mantenha calma e deixe a cabeça erguida!", link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM" },
+  { titulo: "Semana da prova!", descricao: "Você chegou à semana antes da primeira prova. Agora é confiar na sua preparação. Boa sorte!", link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM" },
+  { titulo: "E depois do ENEM?", descricao: "Aproveite a reta final para pesquisar faculdades, cursos e formas de ingresso. Quem conhece as opções escolhe melhor!", link: "https://youtube.com/shorts/XiUWhGY196Y?is=BaEo1GroN32kiO4Y"}
 ];
 
 
@@ -96,18 +96,18 @@ const NEUTRAS = [
 
 const RUINS = [
   { titulo: "Você perdeu o foco!", descricao: "Você passou muito tempo distraído e deixou seus estudos de lado.", voltar: 2, link: "" },
-  { titulo: "Você perdeu a etapa de isenção!", descricao: "Você não acompanhou o calendário e deixou passar o prazo para pedir a isenção da taxa.", voltar: 5, link: "" },
-  { titulo: "Você perdeu o prazo de inscrição!", descricao: "Você esqueceu de acompanhar o calendário do ENEM e perdeu uma etapa importante.", voltar: 3, link: "" },
+  { titulo: "Você perdeu a etapa de isenção!", descricao: "Você não acompanhou o calendário e deixou passar o prazo para pedir a isenção da taxa.", voltar: 5, link: "https://youtube.com/shorts/7uPQfhOT5yk?is=IjrLPblesavR71V2" },
+  { titulo: "Você perdeu o prazo de inscrição!", descricao: "Você esqueceu de acompanhar o calendário do ENEM e perdeu uma etapa importante.", voltar: 3, link: "https://youtube.com/shorts/B1WJ1sEsNts?is=5Zq8VU03A40zVoHv" },
   { titulo: "Você faltou aos estudos!", descricao: "A falta de organização prejudicou seu planejamento.", voltar: 2, link: "" },
   { titulo: "Redes sociais demais!", descricao: "Você passou horas no celular em vez de estudar.", voltar: 2, link: "" },
   { titulo: "Você não fez simulados!", descricao: "Sem treinar com provas anteriores, o estilo das questões ficou estranho para você.", voltar: 3, link: "" },
-  { titulo: "Redação deixada de lado!", descricao: "Você não treinou a escrita e perdeu pontos importantes nas competências.", voltar: 3, link: "" },
+  { titulo: "Redação deixada de lado!", descricao: "Você não treinou a escrita e perdeu pontos importantes nas competências.", voltar: 3, link: "https://youtube.com/shorts/PnHMsnoOBio?is=i7h5F0J5nsFg4LqL " },
   { titulo: "Você virou a noite estudando!", descricao: "Sem dormir direito, seu rendimento caiu no dia seguinte.", voltar: 2, link: "" },
   { titulo: "A ansiedade atrapalhou!", descricao: "Você ficou nervoso e teve dificuldade para manter a concentração.", voltar: 2, link: "" },
   { titulo: "Você não revisou seus erros!", descricao: "Errar a mesma questão de novo custa caro. Faltou rever o que não entendeu.", voltar: 3, link: "" },
   { titulo: "Você ignorou sua saúde!", descricao: "Sem descanso e sem alimentação adequada, sua rotina ficou desorganizada.", voltar: 2, link: "" },
-  { titulo: "Você não conferiu o local de prova!", descricao: "Você deixou de verificar onde faria o exame e perdeu tempo se organizando.", voltar: 3, link: "" },
-  { titulo: "Documentos esquecidos!", descricao: "Você não separou seu documento de identificação com antecedência.", voltar: 4, link: "" },
-  { titulo: "Você perdeu o cartão de confirmação!", descricao: "Você não guardou o comprovante e precisou perder tempo para consultar tudo de novo.", voltar: 3, link: "" },
-  { titulo: "Você deixou tudo para a última hora!", descricao: "A falta de planejamento fez você perder tempo importante.", voltar: 4, link: "" }
+  { titulo: "Você não conferiu o local de prova!", descricao: "Você deixou de verificar onde faria o exame e perdeu tempo se organizando.", voltar: 3, link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM " },
+  { titulo: "Documentos esquecidos!", descricao: "Você não separou seu documento de identificação com antecedência.", voltar: 4, link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM " },
+  { titulo: "Você perdeu o cartão de confirmação!", descricao: "Você não guardou o comprovante e precisou perder tempo para consultar tudo de novo.", voltar: 3, link: "https://youtube.com/shorts/DYKxk93ii1I?is=kRQ7IVeoPPdSuIhM" },
+  { titulo: "Item não permitido!", descricao: "Você esqueceu de desligar o celular e de guardá-lo no envelope antes de entrar na sala. Veja o que pode e o que não pode levar.", voltar: 4, link: "https://youtube.com/shorts/A52owDBrktc?is=VKVO9l84ie1zBwf4" }
 ];
